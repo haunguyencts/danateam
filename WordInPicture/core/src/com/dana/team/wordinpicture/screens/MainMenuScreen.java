@@ -124,6 +124,7 @@ public class MainMenuScreen implements Screen {
 
 	public void update(float deltaTime) {
 		
+		Gdx.app.log("123", "AAAAAA" + deltaTime);
 		
 		for (Cloud cloud : clouds) {
 			cloud.update(deltaTime);
@@ -134,7 +135,9 @@ public class MainMenuScreen implements Screen {
 
 		if (Gdx.input.justTouched()) {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+			
 			Gdx.app.log("DEBUG", "touchPoint.x = " + touchPoint.x + " touchPoint.y = " + touchPoint.y);
+			
 			if (OverlapTester.pointInRectangle(playButton.bounds, touchPoint.x, touchPoint.y)) {
 				Gdx.app.log("DEBUG", "Play button touched");
 				playButton.isYTransforming = true;
@@ -144,7 +147,7 @@ public class MainMenuScreen implements Screen {
 			}
 			if (OverlapTester.pointInRectangle(galleryButton.bounds, touchPoint.x, touchPoint.y)) {
 				Gdx.app.log("DEBUG", "Gallery button touched");
-				galleryButton.isYTransforming = true;
+				galleryButton.isYTransforming = false;
 				galleryButton.isXTransforming = true;
 				Assets.playSound(Assets.coinSound);
 				//game.setScreen(new MainGameScreen(game));
@@ -173,7 +176,9 @@ public class MainMenuScreen implements Screen {
 		/* Draw background */
 		batcher.disableBlending();
 		batcher.begin();
+		
 		batcher.draw(Assets.BackgroundRegion, 0, 0, 800, 480);
+		
 		batcher.end();
 
 		batcher.enableBlending();
