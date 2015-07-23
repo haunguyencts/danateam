@@ -3,14 +3,14 @@ package com.dana.team.wordinpicture.models;
 import com.dana.team.wordinpicture.Config;
 import com.dana.team.wordinpicture.utils.DynamicGameObject;
 
-public class NinjaSticker extends DynamicGameObject {
+public class Monkey extends DynamicGameObject {
 	public static final float COIN_WIDTH = 10f;
 	public static final float COIN_HEIGHT = 10f;
 	public static final int COIN_SCORE = 1;
 
 	float stateTime = 0;
 
-	public NinjaSticker(float x, float y) {
+	public Monkey(float x, float y) {
 		super(x, y, COIN_WIDTH, COIN_HEIGHT);
 	}
 	

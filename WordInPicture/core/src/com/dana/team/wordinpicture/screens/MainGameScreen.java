@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
 import com.dana.team.wordinpicture.Config;
-import com.dana.team.wordinpicture.models.NinjaSticker;
+import com.dana.team.wordinpicture.models.Monkey;
 import com.dana.team.wordinpicture.utils.Animation;
 import com.dana.team.wordinpicture.utils.Assets;
 
@@ -26,7 +26,7 @@ public class MainGameScreen implements Screen {
 	private static OrthographicCamera guiCam;
 	private static SpriteBatch batcher;
 
-	private static NinjaSticker ninjaSticker;
+	private static Monkey ninjaSticker;
 
 	Vector3 touchPoint;
 
@@ -39,7 +39,7 @@ public class MainGameScreen implements Screen {
 
 		touchPoint = new Vector3();
 
-		ninjaSticker = new NinjaSticker(720, 400);
+		ninjaSticker = new Monkey(720, 400);
 	}
 
 	public void update(float deltaTime) {
@@ -62,10 +62,10 @@ public class MainGameScreen implements Screen {
 		batcher.enableBlending();
 		batcher.begin();
 
-		TextureRegion keyFrame = Assets.ninjaAnim.getKeyFrame(
+		TextureRegion keyFrame = Assets.birdAnim.getKeyFrame(
 				ninjaSticker.getStateTime(), Animation.ANIMATION_LOOPING);
 		batcher.draw(keyFrame, ninjaSticker.position.x,
-				ninjaSticker.position.y, 20, 20);
+				ninjaSticker.position.y, 40, 40);
 		
 		batcher.end();
 
